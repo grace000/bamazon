@@ -25,7 +25,7 @@ var ShowItems = function() {
 	        	//get the info about what item the user picked
 	        	var chosenItem;
       			for (var i = 0; i < results.length; i++) {
-        			if (results[i].item_id == answer.item_selection) {
+        			if (results[i].id == answer.item_selection) {
           				chosenItem = results[i];
         			}
         			//console.trace(chosenItem);
@@ -40,7 +40,7 @@ var ShowItems = function() {
       				dbConnection.query("UPDATE products SET ? WHERE ?", [{
           				stock_quantity: newStockAmount
         				}, {
-          				item_id: chosenItem.item_id
+          				id: chosenItem.id
         			}], function(error) {
           				if (error) throw err;
           				console.log("Stock Updated");
